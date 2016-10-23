@@ -1,4 +1,4 @@
-# SGE0001_GenerarApuestas
+# GenerarApuestas
 
 Página web en la que solicite desde una caja de diálogo prompt un número entero entre 1 y 99.
 
