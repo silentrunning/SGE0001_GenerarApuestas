@@ -5,7 +5,7 @@ mostrarApuestas(ordenaApuestas(Math.generaApuestas(strNumeroApuestas)));
 
 /**
  * 
- * @param {type} numeroApuestas
+ * @param {type} numeroApuestas tamaño del array que queremos generar
  * @returns {Array|generaApuestas.aListaApuestas}
  */
 function generaApuestas(numeroApuestas) {
@@ -27,7 +27,7 @@ function generaApuestas(numeroApuestas) {
 
 /**
  * 
- * @returns un Array de seis elementos distintos (enteros entre 1 y 49) ordenados de menor a mayor.
+ * @returns Array de seis elementos distintos (enteros entre 1 y 49) ordenados de menor a mayor.
  */
 function crearCombinacion() {
     var aNumeros = new Array(49);
@@ -60,18 +60,18 @@ function noEsta(apuestaIndividual, aListaApuestas) {
 
 /**
  * 
- * @param {type} aCombinaciones
- * @returns {unresolved} el array que le hemos pasado como parametro ordenado de mayor a menor
+ * @param {type} aListaDeApuestas 
+ * @returns {unresolved} el array que le hemos pasado como parametro ordenado de menor a mayor
  */
-function ordenaApuestas(aCombinaciones) {
-    aCombinaciones.sort(function (a, b) {
+function ordenaApuestas(aListaDeApuestas) {
+    aListaDeApuestas.sort(function (a, b) {// la funcion anónima compara cada uno de los componentes, de dos elementos de aListaDeApuestas
         var intI = 0;
         while (a[intI] - b[intI] === 0 && intI < a.length - 1) {
             intI++;
         }
         return a[intI] - b[intI];
     });
-    return aCombinaciones;
+    return aListaDeApuestas;
 
 }
 
