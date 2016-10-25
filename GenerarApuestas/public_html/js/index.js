@@ -39,7 +39,7 @@ function crearCombinacion() {
         var intRandom = Math.floor(Math.random() * aNumeros.length);
         aCombinacion[intI] = aNumeros.splice(intRandom, 1);
     }
-    aCombinacion.sort((a, b) => a - b);
+    aCombinacion.sort((a, b) => a - b); // notación arrow Functions: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Funciones/Arrow_functions
     return aCombinacion;
 }
 
@@ -61,7 +61,7 @@ function noEsta(apuestaIndividual, aListaApuestas) {
 /**
  * 
  * @param {type} aCombinaciones
- * @returns {unresolved} el array que le hemos pasado ordenado
+ * @returns {unresolved} el array que le hemos pasado como parametro ordenado de mayor a menor
  */
 function ordenaApuestas(aCombinaciones) {
     aCombinaciones.sort(function (a, b) {
