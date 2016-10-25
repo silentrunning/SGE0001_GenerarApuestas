@@ -1,0 +1,15 @@
+table{
+   border-collapse: collapse;
+}
+td{
+    border: solid 0.15em black;
+    table-layout: fixed;  
+}
+td:nth-child(2n+1) {    
+    text-align: right;
+    padding: 0 1em 0 4em;
+}
+td:nth-child(2n){
+    text-align: left;
+    padding: 0 4em 0 1em;
+}
