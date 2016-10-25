@@ -5,9 +5,10 @@
  */
 var strNumeroCombinaciones = prompt("¿cuántas combinaciones quieres?");
 
-mostrarApuestas(generaApuestas(strNumeroCombinaciones));
+mostrarApuestas(Math.generaApuestas(strNumeroCombinaciones));
 
-function generaApuestas(numeroCombinaciones) {
+
+Math.generaApuestas = function(numeroCombinaciones) {
     if (!(/^(([1-9][0-9])|([0]*[1-9]))$/.test(numeroCombinaciones))) {
         throw new Error("El rango está entre 1 y 99");
     }
@@ -64,7 +65,6 @@ function ordenaApuestas(aCombinaciones){
 
 
 function mostrarApuestas(aCombinaciones) {
-
     ordenaApuestas(aCombinaciones);
     document.write("<h2>" + aCombinaciones.length + " apuestas generadas.</h2>");
     document.write("<table>");

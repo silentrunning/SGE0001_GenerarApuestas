@@ -7,6 +7,9 @@ and open the template in the editor.
     Created on : 24-oct-2016, 14:10:07
     Author     : usuario
 */
+table{
+    border-collapse: collapse;
+}
 tr{
     border-style: solid;
     border: 0.2em;
