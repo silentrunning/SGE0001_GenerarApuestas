@@ -1,6 +1,6 @@
 "use strict";
+Math.generaApuestas = generaApuestas; //añadimos la funcion generaApuestas a la clase estática Math
 var strNumeroApuestas = prompt("¿cuántas combinaciones quieres?");
-Math.generaApuestas = generaApuestas;
 var aApuestas = Math.generaApuestas(strNumeroApuestas);
 mostrarApuestas(aApuestas);
 
@@ -22,8 +22,8 @@ function generaApuestas(numeroCombinaciones) {
     return aListaApuestas;
 }
 /**
- * nos devuelve una combinacion de loteria
- * @returns 
+ * 
+ * @returns nos devuelve un Array de seis elementos (enteros entre 1 y 49) ordenados de menor a mayor.
  */
 function crearCombinacion() {
     var aNumeros = new Array(49);
