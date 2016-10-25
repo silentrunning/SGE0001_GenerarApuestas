@@ -1,7 +1,7 @@
 "use strict";
 var strNumeroApuestas = prompt("¿cuántas combinaciones quieres?");
-Math.generaApuestas=generaApuestas;
-var aApuestas=Math.generaApuestas(strNumeroApuestas);
+Math.generaApuestas = generaApuestas;
+var aApuestas = Math.generaApuestas(strNumeroApuestas);
 mostrarApuestas(aApuestas);
 
 
@@ -11,17 +11,20 @@ function generaApuestas(numeroCombinaciones) {
     }
     var aListaApuestas = new Array();
     var intNumApuestas = parseInt(numeroCombinaciones);
-    var intI=0;
+    var intI = 0;
     while (intI < intNumApuestas) {
         var aApuestaIndividual = crearCombinacion();
-        if (noEsta(aApuestaIndividual,aListaApuestas)) {
+        if (noEsta(aApuestaIndividual, aListaApuestas)) {
             intI++;
             aListaApuestas.push(aApuestaIndividual);
         }
     }
     return aListaApuestas;
 }
-
+/**
+ * nos devuelve una combinacion de loteria
+ * @returns 
+ */
 function crearCombinacion() {
     var aNumeros = new Array(49);
     for (var intI = 0; intI < aNumeros.length; intI++) {
@@ -32,13 +35,13 @@ function crearCombinacion() {
         var intRandom = Math.floor(Math.random() * aNumeros.length);
         aCombinacion[intI] = aNumeros.splice(intRandom, 1);
     }
-    aCombinacion.sort((a, b)=> a - b);
+    aCombinacion.sort((a, b) => a - b);
     return aCombinacion;
 }
 
 
 
-function noEsta(apuestaIndividual,aApuestas) {
+function noEsta(apuestaIndividual, aApuestas) {
     for (var intI = 0; intI < aApuestas.length; intI++) {
         if (aApuestas[intI].toString() === apuestaIndividual.toString()) {
             return false;
@@ -46,17 +49,16 @@ function noEsta(apuestaIndividual,aApuestas) {
     }
     return true;
 }
-function ordenaApuestas(aCombinaciones){
+function ordenaApuestas(aCombinaciones) {
     aCombinaciones.sort(function (a, b) {
-        for (var intI = 0; intI < a.length; intI++) {
-            if ((a[intI] - b[intI]) !== 0) {
-                return a[intI] - b[intI];
-            }
+        var intI = 0;
+        while (a[intI] - b[intI] === 0 && intI < a.length - 1) {
+            intI++;
         }
-        return 0;
+        return a[intI] - b[intI];
     });
     return aCombinaciones;
-    
+
 }
 
 
