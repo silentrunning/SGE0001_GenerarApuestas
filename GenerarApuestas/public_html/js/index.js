@@ -81,7 +81,7 @@ function ordenaApuestas(aListaDeApuestas) {
  * 
  */
 function mostrarApuestas(aCombinaciones) {
-    document.write("<h2>" + aCombinaciones.length + " apuestas generadas.</h2>");
+    document.write("<h2>" + aCombinaciones.length + " apuestas generadas</h2>");
     document.write("<table>");
     for (var intI = 0; intI < aCombinaciones.length; intI++) {
         document.write("<tr><td>" + (intI + 1) + "</td><td> " + aCombinaciones[intI].toString() + "</td></tr>");
