@@ -8,8 +8,14 @@ and open the template in the editor.
     Author     : usuario
 */
 table{
-    border-collapse: collapse;
+   border-collapse: collapse;
 }
-tr, td {
-    border: solid 0.2em black;
+td{
+    border: solid 0.2em black;   
+}
+td:nth-child(2n+1) {    
+    text-align: right;
+}
+td:nth-child(2n){
+    text-align: left;
 }
