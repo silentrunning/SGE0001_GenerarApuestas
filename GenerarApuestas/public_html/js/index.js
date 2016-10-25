@@ -2,8 +2,16 @@
 Math.generaApuestas = generaApuestas; //añadimos la funcion generaApuestas a la clase estática Math
 var strNumeroApuestas = prompt("¿cuántas combinaciones quieres?");
 var aApuestas = Math.generaApuestas(strNumeroApuestas);
-mostrarApuestas(aApuestas);
+//aApuestas=ordenaApuestas(aApuestas);
+//mostrarApuestas(aApuestas);
+//mostrarApuestas(ordenaApuestas(aApuestas));
+mostrarApuestas(ordenaApuestas(Math.generaApuestas(strNumeroApuestas)));
 
+/**
+ * 
+ * @param {type} numeroCombinaciones
+ * @returns {Array|generaApuestas.aListaApuestas}
+ */
 
 function generaApuestas(numeroCombinaciones) {
     if (!(/^(([1-9][0-9])|([0]*[1-9]))$/.test(numeroCombinaciones))) {
@@ -23,7 +31,7 @@ function generaApuestas(numeroCombinaciones) {
 }
 /**
  * 
- * @returns nos devuelve un Array de seis elementos (enteros entre 1 y 49) ordenados de menor a mayor.
+ * @returns nos devuelve un Array de seis elementos distintos (enteros entre 1 y 49) ordenados de menor a mayor.
  */
 function crearCombinacion() {
     var aNumeros = new Array(49);
@@ -38,7 +46,12 @@ function crearCombinacion() {
     aCombinacion.sort((a, b) => a - b);
     return aCombinacion;
 }
-
+/**
+ * 
+ * @param {type} apuestaIndividual
+ * @param {type} aApuestas
+ * @returns {Boolean} nos devuelve true en caso de que 
+ */
 
 
 function noEsta(apuestaIndividual, aApuestas) {
@@ -49,6 +62,11 @@ function noEsta(apuestaIndividual, aApuestas) {
     }
     return true;
 }
+/**
+ * 
+ * @param {type} aCombinaciones
+ * @returns {unresolved} el array que le hemos pasado ordenado
+ */
 function ordenaApuestas(aCombinaciones) {
     aCombinaciones.sort(function (a, b) {
         var intI = 0;
@@ -61,9 +79,12 @@ function ordenaApuestas(aCombinaciones) {
 
 }
 
-
+/**
+ *  escribe un fichero html con todos los elementos del array aCombinaciones que le pasamos por parametro
+ * @param {type} aCombinaciones
+ * 
+ */
 function mostrarApuestas(aCombinaciones) {
-    ordenaApuestas(aCombinaciones);
     document.write("<h2>" + aCombinaciones.length + " apuestas generadas.</h2>");
     document.write("<table>");
     for (var intI = 0; intI < aCombinaciones.length; intI++) {
