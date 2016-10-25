@@ -6,7 +6,7 @@ mostrarApuestas(ordenaApuestas(Math.generaApuestas(strNumeroApuestas)));
 /**
  * 
  * @param {type} numeroApuestas indica el tamaño del array que queremos generar
- * @returns {Array|generaApuestas.aListaApuestas} un Array de apuestas de loteria (cada apuesta esta representada como un array de enteros)
+ * @returns {Array|generaApuestas.aListaApuestas} un Array de apuestas de loteria (cada apuesta esta representada como un array de 6 numeros enteros)
  */
 function generaApuestas(numeroApuestas) {
     if (!(/^(([1-9][0-9])|([0]*[1-9]))$/.test(numeroApuestas))) {
