@@ -1,10 +1,6 @@
 "use strict";
 Math.generaApuestas = generaApuestas; //añadimos la funcion generaApuestas a la clase estática Math
 var strNumeroApuestas = prompt("¿cuántas combinaciones quieres?");
-//var aApuestas = Math.generaApuestas(strNumeroApuestas);
-//aApuestas=ordenaApuestas(aApuestas);
-//mostrarApuestas(aApuestas);
-//mostrarApuestas(ordenaApuestas(aApuestas));
 mostrarApuestas(ordenaApuestas(Math.generaApuestas(strNumeroApuestas)));
 
 /**
@@ -12,15 +8,14 @@ mostrarApuestas(ordenaApuestas(Math.generaApuestas(strNumeroApuestas)));
  * @param {type} numeroCombinaciones
  * @returns {Array|generaApuestas.aListaApuestas}
  */
-
 function generaApuestas(numeroCombinaciones) {
     if (!(/^(([1-9][0-9])|([0]*[1-9]))$/.test(numeroCombinaciones))) {
         throw new Error("El rango está entre 1 y 99");
     }
     var aListaApuestas = new Array();
-    var intNumApuestas = parseInt(numeroCombinaciones);
+    var intNumeroApuestas = parseInt(numeroCombinaciones);
     var intI = 0;
-    while (intI < intNumApuestas) {
+    while (intI < intNumeroApuestas) {
         var aApuestaIndividual = crearCombinacion();
         if (noEsta(aApuestaIndividual, aListaApuestas)) {
             intI++;
@@ -29,6 +24,7 @@ function generaApuestas(numeroCombinaciones) {
     }
     return aListaApuestas;
 }
+
 /**
  * 
  * @returns nos devuelve un Array de seis elementos distintos (enteros entre 1 y 49) ordenados de menor a mayor.
@@ -46,14 +42,13 @@ function crearCombinacion() {
     aCombinacion.sort((a, b) => a - b);
     return aCombinacion;
 }
+
 /**
  * 
  * @param {type} apuestaIndividual
  * @param {type} aApuestas
  * @returns {Boolean} nos devuelve true en caso de que 
  */
-
-
 function noEsta(apuestaIndividual, aApuestas) {
     for (var intI = 0; intI < aApuestas.length; intI++) {
         if (aApuestas[intI].toString() === apuestaIndividual.toString()) {
@@ -62,6 +57,7 @@ function noEsta(apuestaIndividual, aApuestas) {
     }
     return true;
 }
+
 /**
  * 
  * @param {type} aCombinaciones
