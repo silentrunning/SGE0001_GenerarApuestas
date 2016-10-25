@@ -1,28 +1,25 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-var strNumeroCombinaciones = prompt("¿cuántas combinaciones quieres?");
-
-mostrarApuestas(Math.generaApuestas(strNumeroCombinaciones));
+"use strict";
+var strNumeroApuestas = prompt("¿cuántas combinaciones quieres?");
+Math.generaApuestas=generaApuestas;
+var aApuestas=Math.generaApuestas(strNumeroApuestas);
+mostrarApuestas(aApuestas);
 
 
-Math.generaApuestas = function(numeroCombinaciones) {
+function generaApuestas(numeroCombinaciones) {
     if (!(/^(([1-9][0-9])|([0]*[1-9]))$/.test(numeroCombinaciones))) {
         throw new Error("El rango está entre 1 y 99");
     }
-    var aApuestas = new Array();
+    var aListaApuestas = new Array();
     var intNumApuestas = parseInt(numeroCombinaciones);
-    var intI = 0;
+    var intI=0;
     while (intI < intNumApuestas) {
         var aApuestaIndividual = crearCombinacion();
-        if (noEsta(aApuestaIndividual,aApuestas)) {
+        if (noEsta(aApuestaIndividual,aListaApuestas)) {
             intI++;
-            aApuestas.push(aApuestaIndividual);
+            aListaApuestas.push(aApuestaIndividual);
         }
     }
-    return aApuestas;
+    return aListaApuestas;
 }
 
 function crearCombinacion() {
@@ -37,14 +34,13 @@ function crearCombinacion() {
     }
     aCombinacion.sort((a, b)=> a - b);
     return aCombinacion;
-   
 }
 
 
 
 function noEsta(apuestaIndividual,aApuestas) {
     for (var intI = 0; intI < aApuestas.length; intI++) {
-        if (aApuestas[intI].toString() == apuestaIndividual.toString()) {
+        if (aApuestas[intI].toString() === apuestaIndividual.toString()) {
             return false;
         }
     }
@@ -53,7 +49,7 @@ function noEsta(apuestaIndividual,aApuestas) {
 function ordenaApuestas(aCombinaciones){
     aCombinaciones.sort(function (a, b) {
         for (var intI = 0; intI < a.length; intI++) {
-            if ((a[intI] - b[intI]) != 0) {
+            if ((a[intI] - b[intI]) !== 0) {
                 return a[intI] - b[intI];
             }
         }

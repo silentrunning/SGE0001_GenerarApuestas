@@ -10,7 +10,6 @@ and open the template in the editor.
 table{
     border-collapse: collapse;
 }
-tr{
-    border-style: solid;
-    border: 0.2em;
+tr, td {
+    border: solid 0.2em black;
 }
