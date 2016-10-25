@@ -1,3 +1,9 @@
+/**
+ * 
+ * @author sardinilla
+ * @version 0.90beta
+ */
+
 "use strict";
 Math.generaApuestas = generaApuestas; //añadimos la funcion generaApuestas a la clase estática Math
 var strNumeroApuestas = prompt("¿cuántas combinaciones quieres?");
