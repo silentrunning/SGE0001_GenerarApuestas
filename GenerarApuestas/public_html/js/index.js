@@ -1,7 +1,7 @@
 "use strict";
 Math.generaApuestas = generaApuestas; //añadimos la funcion generaApuestas a la clase estática Math
 var strNumeroApuestas = prompt("¿cuántas combinaciones quieres?");
-mostrarApuestas(ordenaApuestas(Math.generaApuestas(strNumeroApuestas)));
+mostrarApuestas(ordenarApuestas(Math.generaApuestas(strNumeroApuestas)));
 
 /**
  * 
@@ -63,7 +63,7 @@ function noEsta(apuestaIndividual, aListaApuestas) {
  * @param {type} aListaDeApuestas 
  * @returns {unresolved} el array que le hemos pasado como parametro ordenado de menor a mayor
  */
-function ordenaApuestas(aListaDeApuestas) {
+function ordenarApuestas(aListaDeApuestas) {
     aListaDeApuestas.sort(function (a, b) {// la funcion anónima compara cada uno de los componentes, de dos elementos de aListaDeApuestas
         var intI = 0;
         while (a[intI] - b[intI] === 0 && intI < a.length - 1) {
