@@ -5,15 +5,15 @@ mostrarApuestas(ordenaApuestas(Math.generaApuestas(strNumeroApuestas)));
 
 /**
  * 
- * @param {type} numeroCombinaciones
+ * @param {type} numeroApuestas
  * @returns {Array|generaApuestas.aListaApuestas}
  */
-function generaApuestas(numeroCombinaciones) {
-    if (!(/^(([1-9][0-9])|([0]*[1-9]))$/.test(numeroCombinaciones))) {
+function generaApuestas(numeroApuestas) {
+    if (!(/^(([1-9][0-9])|([0]*[1-9]))$/.test(numeroApuestas))) {
         throw new Error("El rango está entre 1 y 99");
     }
     var aListaApuestas = new Array();
-    var intNumeroApuestas = parseInt(numeroCombinaciones);
+    var intNumeroApuestas = parseInt(numeroApuestas);
     var intI = 0;
     while (intI < intNumeroApuestas) {
         var aApuestaIndividual = crearCombinacion();
@@ -27,7 +27,7 @@ function generaApuestas(numeroCombinaciones) {
 
 /**
  * 
- * @returns nos devuelve un Array de seis elementos distintos (enteros entre 1 y 49) ordenados de menor a mayor.
+ * @returns un Array de seis elementos distintos (enteros entre 1 y 49) ordenados de menor a mayor.
  */
 function crearCombinacion() {
     var aNumeros = new Array(49);
@@ -46,12 +46,12 @@ function crearCombinacion() {
 /**
  * 
  * @param {type} apuestaIndividual
- * @param {type} aApuestas
- * @returns {Boolean} nos devuelve true en caso de que 
+ * @param {type} aListaApuestas
+ * @returns {Boolean} true en caso de que apuestaIndividual tenga el mismo valor como String que un elemento del array aListaApuestas
  */
-function noEsta(apuestaIndividual, aApuestas) {
-    for (var intI = 0; intI < aApuestas.length; intI++) {
-        if (aApuestas[intI].toString() === apuestaIndividual.toString()) {
+function noEsta(apuestaIndividual, aListaApuestas) {
+    for (var intI = 0; intI < aListaApuestas.length; intI++) {
+        if (aListaApuestas[intI].toString() === apuestaIndividual.toString()) {
             return false;
         }
     }
